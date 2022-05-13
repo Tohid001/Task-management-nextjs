@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background-color: white;
+}
+
+.link {
+  border: 1px solid black;
+  padding: 0.5em;
+  cursor: pointer;
+  background-color: green;
+}
