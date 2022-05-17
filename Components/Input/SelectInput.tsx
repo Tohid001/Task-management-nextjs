@@ -1,14 +1,14 @@
 import React from "react";
+import { selectProps } from "./interfaces";
 
 function SelectInput({
-  required,
+  required = true,
   state,
   onChangeHandler,
   name,
   label,
   options,
-  placeholder,
-}) {
+}: selectProps) {
   return (
     <>
       {label && <label htmlFor={name}>{label}</label>}
@@ -18,7 +18,6 @@ function SelectInput({
         value={state}
         onChange={onChangeHandler}
         name={name}
-        placeholder={placeholder}
       >
         <>
           <option value="" disabled selected hidden>

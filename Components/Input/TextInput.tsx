@@ -1,14 +1,16 @@
 import React, { useRef, useEffect } from "react";
+import { textProps } from "./interfaces";
 
-function DateInput({
-  required,
+function TextInput({
+  required = true,
   state,
   name,
   onChangeHandler,
+  autoFocus = true,
   placeholder,
   label,
-  type = "date",
-}) {
+  type = "text",
+}: textProps) {
   const inputRef = useRef(null);
   // useEffect(() => {
   //   !label && inputRef.current.focus();
@@ -25,9 +27,10 @@ function DateInput({
         name={name}
         placeholder={placeholder}
         onChange={onChangeHandler}
+        autoFocus={autoFocus}
       />
     </>
   );
 }
 
-export default DateInput;
+export default TextInput;

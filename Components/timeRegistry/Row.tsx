@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
 import RegistryForm from "../Form/RegistryForm";
-import EditableCell from "../../Components/Cell/EditableCell";
-import { TextInput, DateInput } from "../../Components/Input";
+import EditableCell from "../Cell/EditableCell";
+import { TextInput, DateInput } from "../Input";
 import { AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
+import moment from "moment";
 
-function Row({ date }) {
+function Row({
+  date,
+  registryInfoColSpan,
+}: {
+  date: moment.Moment;
+  registryInfoColSpan: number;
+}) {
   const [modal, setModal] = useState(false);
   const [rTask, setRtask] = useState([]);
 
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:5000/timeRegistry?registeredAt.month=${date
+        `http://localhost:3000/timeRegistry?registeredAt.month=${date
           .clone()
           .format("M")}&registeredAt.day=${date.clone().format("D")}`
       );
@@ -25,7 +32,7 @@ function Row({ date }) {
   console.log(date.format("D"), rTask);
 
   const taskInfoFieldUpdateHandler = async (id, body) => {
-    await axios.patch(`http://localhost:5000/timeRegistry/${id}`, body);
+    await axios.patch(`http://localhost:3000/timeRegistry/${id}`, body);
     const index = rTask.findIndex((task) => {
       return task.id === id;
     });
@@ -36,7 +43,7 @@ function Row({ date }) {
 
   const addTasktoSpecificRehgistryDate = async (body) => {
     const response = await axios.post(
-      `http://localhost:5000/timeRegistry`,
+      `http://localhost:3000/timeRegistry`,
       body
     );
     console.log("submit called", response);

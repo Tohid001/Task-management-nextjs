@@ -2,14 +2,23 @@ import React from "react";
 import useForm from "../../Hooks/useForm";
 import { v4 } from "uuid";
 import { TextInput } from "../Input/index";
+import { Moment } from "moment";
 
 import {
-  OuterMost,
+  // OuterMost,
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   CancelButton,
 } from "./Form.styled.js";
+
+type RegistryFormProps = {
+  date: Moment;
+  nest?: boolean;
+  submitHandler: Function;
+  modal: Function;
+  initialState: object;
+};
 
 function RegistryForm({
   date,
@@ -17,7 +26,7 @@ function RegistryForm({
   submitHandler,
   modal,
   initialState,
-}) {
+}: RegistryFormProps) {
   const [formstates, setFormstates, onChangeHandler, resetHandler] =
     useForm(initialState);
 
@@ -40,19 +49,8 @@ function RegistryForm({
             action,
             actualTime,
           });
-          // console.log({
-          //   id: v4(),
-          //   registeredAt: {
-          //     month: date.clone().format("M"),
-          //     day: date.clone().format("D"),
-          //     year: date.clone().format("YYYY"),
-          //     time: date.clone().format("h:mm:ss a"),
-          //   },
-          //   taskId,
-          //   action,
-          //   actualTime,
-          // });
         }}
+        timeRegestry={true}
       >
         <CancelButton
           onClick={() => {

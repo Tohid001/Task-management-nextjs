@@ -4,27 +4,35 @@ import { GiCancel } from "react-icons/gi";
 import useForm from "../../Hooks/useForm";
 import { IconContainer, SubRow } from "./EditableCell.styled.js";
 
+type EditableCellProps = {
+  id: string;
+  initialState: {};
+  value: string;
+  children: (options: {
+    state: string;
+    onChangeHandler: Function;
+    name: string;
+  }) => React.ReactNode;
+  taskInfoFieldUpdateHandler: Function;
+};
+
 function EditableCell({
   id,
   initialState,
   value,
   children,
   taskInfoFieldUpdateHandler,
-}) {
+}: EditableCellProps) {
   const [isEdit, setEdit] = useState(false);
 
   const [formstates, setFormstates, onChangeHandler, resetHandler] =
     useForm(initialState);
-
-  // console.log(formstates);
 
   const options = {
     state: formstates[Object.keys(initialState)[0]],
     onChangeHandler,
     name: Object.keys(initialState)[0],
   };
-
-  // console.log(`${Object.keys(initialState)[0]} field rendered`);
 
   return (
     <SubRow>
@@ -71,7 +79,6 @@ function EditableCell({
                     return !prev;
                   });
                   taskInfoFieldUpdateHandler(id, formstates);
-                  // console.log(taskInfoFieldUpdateHandler);
                 }}
               >
                 <FaSave size="1rem" />

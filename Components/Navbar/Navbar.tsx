@@ -5,7 +5,7 @@ import { NavBar, NavLink } from "./Navbar.styled.js";
 function Nav() {
   return (
     <NavBar>
-      <Link href="/task/createTask">
+      <Link href="/createTask">
         <a>Create Task</a>
       </Link>
       <Link href="/timeRegistry">

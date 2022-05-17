@@ -1,8 +1,8 @@
 import React from "react";
 import { GlobalReset } from "../../styles/Global.styled.js";
-import Nav from "../Navbar/Navbar.js";
+import Nav from "../Navbar/Navbar.jsx";
 
-function Layout({ children }) {
+function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <GlobalReset />
