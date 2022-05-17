@@ -1,4 +1,4 @@
-import Layout from "../Components/Layout/Layout.jsx";
+import Layout from "../Components/Layout/Layout";
 import { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSave, FaEdit } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import useForm from "../../Hooks/useForm";
-import { IconContainer, SubRow } from "./EditableCell.styled.js";
+import { IconContainer, SubRow } from "./EditableCell.styled";
 
 type EditableCellProps = {
   id: string;
