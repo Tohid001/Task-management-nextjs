@@ -1,4 +1,4 @@
-import TextInput from "./TextInput.jsx";
-import DateInput from "./DateInput.jsx";
-import SelectInput from "./SelectInput.jsx";
+import TextInput from "./TextInput";
+import DateInput from "./DateInput";
+import SelectInput from "./SelectInput";
 export { TextInput, DateInput, SelectInput };

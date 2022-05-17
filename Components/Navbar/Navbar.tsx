@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { NavBar, NavLink } from "./Navbar.styled.js";
+import { NavBar } from "./Navbar.styled";
 
 function Nav() {
   return (
