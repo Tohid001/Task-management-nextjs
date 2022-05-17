@@ -14,7 +14,7 @@ function Home() {
   const [modal, setModal] = useState(true);
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("http://localhost:5000/tasks");
+      const response = await axios.get("http://localhost:3000/tasks");
       // console.log(response.data);
       setTaskList(response.data);
     };
@@ -22,7 +22,7 @@ function Home() {
   }, []);
 
   const deleteHandler = async (id) => {
-    await axios.delete(`http://localhost:5000/tasks/${id}`);
+    await axios.delete(`http://localhost:3000/tasks/${id}`);
     const filteredTasks = taskList.filter((task, index) => {
       return task.id !== id;
     });
@@ -30,7 +30,7 @@ function Home() {
   };
 
   const taskInfoFieldUpdateHandler = async (id, body) => {
-    await axios.patch(`http://localhost:5000/tasks/${id}`, body);
+    await axios.patch(`http://localhost:3000/tasks/${id}`, body);
     const index = taskList.findIndex((task) => {
       return task.id === id;
     });
@@ -44,7 +44,7 @@ function Home() {
       <caption>Task List</caption>
       <thead>
         <tr>
-          <th colSpan="7">Task Info</th>
+          <th colSpan={7}>Task Info</th>
         </tr>
         <tr>
           <th>Serial No.</th>

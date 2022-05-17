@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 
 function useCalender() {
-  `// @refresh reset`;
   const [value, setValue] = useState(moment());
   const [calender, setCalender] = useState([]);
 

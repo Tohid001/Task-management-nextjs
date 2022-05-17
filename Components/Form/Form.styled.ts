@@ -1,17 +1,32 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const FormContainer = styled.form`
+export const Common = styled.form`
   border-radius: 5px;
-  /* position: fixed; */
-  /* top: 0; */
-  /* bottom: 0; */
   background: black;
   padding: 0.8rem;
-  /* width: 50%; */
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* z-index: 100; */
+`;
+
+interface FormContainerProps {
+  timeRegestry?: boolean;
+}
+
+export const FormContainer = styled(Common)<FormContainerProps>`
+  ${({ timeRegestry }) => {
+    switch (timeRegestry) {
+      case true:
+        return css`
+          position: fixed;
+          bottom: 0;
+          width: 50%;
+          z-index: 100;
+        `;
+      default:
+        return;
+    }
+  }}
 `;
 
 export const CancelButton = styled.button`
@@ -47,7 +62,7 @@ export const TextInputContainer = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled.div<{ isResetDisable: boolean }>`
   display: flex;
   gap: 10px;
   & button {
@@ -64,7 +79,7 @@ export const ButtonContainer = styled.div`
       background: rgba(2, 247, 84);
     }
     &:nth-child(2) {
-      background: ${({ isResetDisable }) =>
+      background: ${(isResetDisable) =>
         isResetDisable ? "rgba(109, 221, 227)" : "rgba(168, 173, 170)"};
     }
   }

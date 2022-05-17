@@ -44,7 +44,7 @@ function CreatedTasks() {
       <caption>Task List</caption>
       <thead>
         <tr>
-          <th colSpan="7">Task Info</th>
+          <th colSpan={7}>Task Info</th>
         </tr>
         <tr>
           <th>Serial No.</th>

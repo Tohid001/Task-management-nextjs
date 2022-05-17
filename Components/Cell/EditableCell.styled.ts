@@ -15,7 +15,12 @@ export const SubRow = styled.div`
   }
 `;
 
-export const IconContainer = styled.div`
+interface IconContainerProps {
+  isEdit: boolean;
+  isAbled: boolean;
+}
+
+export const IconContainer = styled.div<IconContainerProps>`
   margin-left: auto;
   background: rgba(212, 208, 207, 0.5);
   padding: 0.5em;

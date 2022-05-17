@@ -9,15 +9,15 @@ import { data } from "../../constants";
 const { selectOptions } = data;
 
 import {
-  OuterMost,
+  // OuterMost,
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   SelectInputContainer,
   CancelButton,
-} from "./AssignTask.styled.js";
+} from "../../Components/Form/Form.styled";
 
-function Form({ nest = false }) {
+function Form() {
   const [formstates, setFormstates, onChangeHandler, resetHandler] = useForm({
     title: "",
     description: "",
