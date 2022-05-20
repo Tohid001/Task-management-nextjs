@@ -6,6 +6,13 @@ import { AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 import moment from "moment";
 
+interface rTask {
+  id: string;
+  taskId: string;
+  action: string;
+  actualTime: string;
+}
+
 function Row({
   date,
   registryInfoColSpan,
@@ -13,8 +20,8 @@ function Row({
   date: moment.Moment;
   registryInfoColSpan: number;
 }) {
-  const [modal, setModal] = useState(false);
-  const [rTask, setRtask] = useState([]);
+  const [modal, setModal] = useState<boolean>(false);
+  const [rTask, setRtask] = useState<rTask[]>([] as rTask[]);
 
   useEffect(() => {
     const fetch = async () => {
@@ -29,9 +36,7 @@ function Row({
     fetch();
   }, [date]);
 
-  console.log(date.format("D"), rTask);
-
-  const taskInfoFieldUpdateHandler = async (id, body) => {
+  const taskInfoFieldUpdateHandler = async (id: string, body: {}) => {
     await axios.patch(`http://localhost:3000/timeRegistry/${id}`, body);
     const index = rTask.findIndex((task) => {
       return task.id === id;
@@ -41,7 +46,7 @@ function Row({
     setRtask(test);
   };
 
-  const addTasktoSpecificRehgistryDate = async (body) => {
+  const addTasktoSpecificRehgistryDate = async (body: rTask) => {
     const response = await axios.post(
       `http://localhost:3000/timeRegistry`,
       body
@@ -51,7 +56,7 @@ function Row({
     setRtask([...rTask, body]);
     setModal((prev) => !prev);
   };
-  // console.log(date.format("D"), "hello");
+
   return (
     <>
       <tr>
@@ -79,7 +84,7 @@ function Row({
           )}
         </th>
       </tr>
-      {rTask?.map(({ id, taskId, action, actualTime }, index) => {
+      {rTask.map(({ id, taskId, action, actualTime }, index) => {
         return (
           <tr key={index}>
             <td>

@@ -5,29 +5,28 @@ import { TextInput } from "../Input/index";
 import { Moment } from "moment";
 
 import {
-  // OuterMost,
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   CancelButton,
-} from "./Form.styled.js";
+} from "./Form.styled";
 
-type RegistryFormProps = {
+type RegistryFormProps<X, Z> = {
   date: Moment;
   nest?: boolean;
   submitHandler: Function;
-  modal: Function;
-  initialState: object;
+  modal: <F extends (a: boolean) => boolean>(param: F) => void;
+  initialState: Z;
 };
 
-function RegistryForm({
+function RegistryForm<A extends string, X, Z extends { [index: string]: A }>({
   date,
   nest = true,
   submitHandler,
   modal,
   initialState,
-}: RegistryFormProps) {
-  const [formstates, setFormstates, onChangeHandler, resetHandler] =
+}: RegistryFormProps<X, Z>) {
+  const { formstates, setFormstates, onChangeHandler, resetHandler } =
     useForm(initialState);
 
   const { taskId, action, actualTime } = formstates;

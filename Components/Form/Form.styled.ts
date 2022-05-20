@@ -62,7 +62,10 @@ export const TextInputContainer = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.div<{ isResetDisable: boolean }>`
+export const ButtonContainer = styled.div<{
+  isResetDisable: boolean;
+  disableSubmit: boolean;
+}>`
   display: flex;
   gap: 10px;
   & button {

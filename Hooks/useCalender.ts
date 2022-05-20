@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import moment from "moment";
+import { useState, useEffect } from "react";
+import moment, { Moment } from "moment";
 
 function useCalender() {
-  const [value, setValue] = useState(moment());
-  const [calender, setCalender] = useState([]);
+  const [value, setValue] = useState<Moment>(moment());
+  const [calender, setCalender] = useState<Moment[]>([]);
 
   const previousMonth = () => {
     setValue((prev) => {
@@ -18,13 +18,11 @@ function useCalender() {
   };
 
   useEffect(() => {
-    // console.log("useeffect");
-
     const startDay = value.clone().startOf("month");
     const endDay = value.clone().endOf("month");
     const day = startDay.clone().subtract(1, "day");
 
-    const tempCalender = [];
+    const tempCalender: Moment[] = [];
 
     while (
       (!day.isSame(endDay, "day") && day.isSame(endDay, "month")) ||
@@ -32,12 +30,18 @@ function useCalender() {
     ) {
       tempCalender.push(day.add(1, "day").clone());
     }
-    // console.log("tempCalender", tempCalender);
+
     setCalender(tempCalender);
   }, [value]);
-  // console.log("hook", calender);
 
-  return [value, setValue, calender, previousMonth, nextMonth];
+  return {
+    value,
+    setValue,
+    calender,
+    setCalender,
+    previousMonth,
+    nextMonth,
+  };
 }
 
 export default useCalender;
