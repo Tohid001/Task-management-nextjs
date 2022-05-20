@@ -2,23 +2,21 @@ import React from "react";
 import { useRouter } from "next/router";
 import useForm from "../../Hooks/useForm";
 import { v4 } from "uuid";
-import { TextInput, DateInput, SelectInput } from "../../Components/Input";
+import { TextInput, SelectInput } from "../../Components/Input";
 import axios from "axios";
 
 import { data } from "../../constants";
 const { selectOptions } = data;
 
 import {
-  // OuterMost,
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   SelectInputContainer,
-  CancelButton,
 } from "../../Components/Form/Form.styled";
 
 function Form() {
-  const [formstates, setFormstates, onChangeHandler, resetHandler] = useForm({
+  const { formstates, onChangeHandler, resetHandler } = useForm({
     title: "",
     description: "",
     estimatedTime: "",
@@ -28,10 +26,11 @@ function Form() {
   const { title, description, estimatedTime, priority } = formstates;
 
   const submitHandler = async () => {
-    await axios.post("http://localhost:5000/tasks", {
+    await axios.post("http://localhost:3000/tasks", {
       ...formstates,
       id: v4(),
     });
+    console.log("submit");
     router.push("/");
   };
 
@@ -86,7 +85,6 @@ function Form() {
             label="Priority"
             placeholder=""
             required={true}
-            autoFocus={false}
             options={selectOptions}
           />
         </SelectInputContainer>

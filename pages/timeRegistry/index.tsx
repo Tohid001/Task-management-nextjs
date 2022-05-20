@@ -1,43 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useCalender from "../../Hooks/useCalender";
 import Row from "../../Components/timeRegistry/Row";
-import { Moment } from "moment";
+import Action from "../../Components/timeRegistry/Action";
 
 function Index() {
-  const [value, , calender, previousMonth, nextMonth] = useCalender();
-  const [modal, setModal] = useState(false);
-
-  const parentsTyles: React.CSSProperties = {
-    display: "flex",
-    justifyContent: "space-between",
-    width: "30%",
-    marginInline: "auto",
-  };
+  const { calender, previousMonth, nextMonth } = useCalender();
 
   return (
     <>
-      <div style={parentsTyles}>
-        <span
-          onClick={() => {
-            previousMonth();
-          }}
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          prev
-        </span>
-        <span
-          onClick={() => {
-            nextMonth();
-          }}
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          next
-        </span>
-      </div>
+      <Action {...{ previousMonth, nextMonth }} />
+
       <table>
         <caption>Time Registry</caption>
         <thead>
@@ -52,10 +24,10 @@ function Index() {
           </tr>
         </thead>
         <tbody>
-          {calender?.map((date: Moment, index: number) => {
+          {calender.map((date, index) => {
             return (
               <>
-                <Row date={date} registryInfoColSpan={3} />
+                <Row key={index} date={date} registryInfoColSpan={3} />
                 <tr></tr>
               </>
             );

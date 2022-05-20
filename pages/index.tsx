@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { AiFillDelete, AiOutlinePlus } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import EditableCell from "../Components/Cell/EditableCell";
-import { TextInput, DateInput, SelectInput } from "../Components/Input/index";
+import { TextInput, SelectInput } from "../Components/Input/index";
 
 import axios from "axios";
 
@@ -9,9 +9,18 @@ import { data } from "../constants/index";
 
 const { initialState, selectOptions } = data;
 
+interface task {
+  id: string;
+  title: string;
+  description: string;
+  estimatedTime: string;
+  priority: string;
+}
+
 function Home() {
-  const [taskList, setTaskList] = useState(null);
-  const [modal, setModal] = useState(true);
+  const [taskList, setTaskList] = useState<task[]>([] as task[]);
+  const [modal, setModal] = useState<boolean>(true);
+
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get("http://localhost:3000/tasks");
@@ -21,7 +30,7 @@ function Home() {
     fetch();
   }, []);
 
-  const deleteHandler = async (id) => {
+  const deleteHandler = async (id: string) => {
     await axios.delete(`http://localhost:3000/tasks/${id}`);
     const filteredTasks = taskList.filter((task, index) => {
       return task.id !== id;
@@ -29,9 +38,9 @@ function Home() {
     setTaskList(filteredTasks);
   };
 
-  const taskInfoFieldUpdateHandler = async (id, body) => {
+  const taskInfoFieldUpdateHandler = async (id: string, body: {}) => {
     await axios.patch(`http://localhost:3000/tasks/${id}`, body);
-    const index = taskList.findIndex((task) => {
+    const index: number = taskList?.findIndex((task) => {
       return task.id === id;
     });
     const test = [...taskList];
@@ -57,7 +66,7 @@ function Home() {
         </tr>
       </thead>
       <tbody>
-        {taskList?.length > 0 &&
+        {taskList.length > 0 &&
           taskList.map((task, index) => {
             return (
               <>

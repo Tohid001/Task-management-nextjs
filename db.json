@@ -1,7 +1,7 @@
 {
   "tasks": [
     {
-      "title": "make a landing page",
+      "title": "sc",
       "description": "use tailwind css",
       "estimatedTime": "5 hours",
       "priority": "p2",
@@ -34,6 +34,13 @@
       "estimatedTime": "2 hours",
       "priority": "p1",
       "id": "779d6a62-5e29-4150-a263-f2774c1a3bd1"
+    },
+    {
+      "title": "OOOOOOOOOOO",
+      "description": "OOOOOOOOOOO",
+      "estimatedTime": "OOOOOOOOOOO",
+      "priority": "p1",
+      "id": "b7da9ca9-eb8f-43ec-8453-b57e1d3ef78c"
     }
   ],
   "timeRegistry": [

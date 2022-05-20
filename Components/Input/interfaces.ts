@@ -1,5 +1,4 @@
-import React from "react";
-
+type Modify<T, R> = Omit<T, keyof R> & R;
 export interface inputProps {
   required?: boolean;
   state: string;
@@ -10,11 +9,13 @@ export interface inputProps {
   type?: string;
 }
 
-export interface selectProps extends inputProps {
-  options: [];
-  onChangeHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}
-
+export type selectProps = Modify<
+  inputProps,
+  {
+    options: string[];
+    onChangeHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  }
+>;
 export interface textProps extends inputProps {
   autoFocus?: boolean;
 }

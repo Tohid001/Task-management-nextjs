@@ -1,32 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaSave, FaEdit } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import useForm from "../../Hooks/useForm";
 import { IconContainer, SubRow } from "./EditableCell.styled";
 
-type EditableCellProps = {
+type EditableCellProps<T, X> = {
   id: string;
-  initialState: {};
+  initialState: T;
   value: string;
   children: (options: {
-    state: string;
-    onChangeHandler: Function;
+    state: X;
+    onChangeHandler: <
+      A,
+      B extends { name: string; value: A },
+      C extends { target: B }
+    >(
+      event: C
+    ) => void;
     name: string;
   }) => React.ReactNode;
-  taskInfoFieldUpdateHandler: Function;
+  taskInfoFieldUpdateHandler: (id: string, formstates: T) => void;
 };
 
-function EditableCell({
+function EditableCell<X extends string, T extends { [index: string]: X }>({
   id,
   initialState,
   value,
   children,
   taskInfoFieldUpdateHandler,
-}: EditableCellProps) {
-  const [isEdit, setEdit] = useState(false);
+}: EditableCellProps<T, X>) {
+  const [isEdit, setEdit] = useState<boolean>(false);
 
-  const [formstates, setFormstates, onChangeHandler, resetHandler] =
-    useForm(initialState);
+  const { formstates, onChangeHandler, resetHandler } = useForm(initialState);
 
   const options = {
     state: formstates[Object.keys(initialState)[0]],
