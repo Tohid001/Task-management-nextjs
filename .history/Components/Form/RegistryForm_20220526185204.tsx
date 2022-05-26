@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import type { ReactElement } from "react";
 import {
   Formik,
   FormikHelpers,
@@ -9,67 +9,71 @@ import {
   ErrorMessage,
 } from "formik";
 import * as Yup from "yup";
-
+import { TextInput, ErrorIndicator } from "@/Input/index";
 import { v4 } from "uuid";
-import { TextInput, SelectInput, ErrorIndicator } from "@/Input/index";
-import axios from "axios";
-import moment from "moment";
-
-import { data } from "constants/index";
+import { Moment } from "moment";
 
 import {
   FormContainer,
   TextInputContainer,
   ButtonContainer,
-  SelectInputContainer,
+  CancelButton,
 } from "@/Form/Form.styled";
 
-const { selectOptions } = data;
-interface MyFormValues {
-  title: string;
-  description: string;
-  estimatedTime: number;
-  priority: string;
-}
+// interface MyFormValues {
+//   [index: string]: string | number;
+// }
 
-const initialValues: MyFormValues = {
-  title: "",
-  description: "",
-  estimatedTime: 0,
-  priority: "",
-};
+// const initialValues: MyFormValues = {
+//   taskId: "",
+//   action: "",
+//   actualTime: 2,
+// };
 
 const validationSchema = Yup.object({
-  title: Yup.string().required("Please Enter your title"),
-  description: Yup.string().required("Please Enter your description"),
-  estimatedTime: Yup.number().required("Please Enter your estimated time"),
-  priority: Yup.string().required("Please select your priority"),
+  taskId: Yup.string().required("required"),
+  action: Yup.string().required("Please Enter your actions"),
+  actualTime: Yup.number().required("Please Enter your actual time"),
 });
 
-function Form() {
-  const router = useRouter();
+type RegistryFormProps<X, Z> = {
+  date: Moment;
+  nest?: boolean;
+  submitHandler: Function;
+  modal: <F extends (a: boolean) => boolean>(param: F) => void;
+  initialState: Z;
+  timeRegestry?: boolean;
+};
 
-  const submitHandler = async (formstates: MyFormValues) => {
-    await axios.post(`http://localhost:3000/tasks`, {
-      ...formstates,
-      id: v4(),
-      createdAt: {
-        month: moment().format("M"),
-        day: moment().format("D"),
-        year: moment().format("YYYY"),
-        time: moment().format("h:mm:ss a"),
-      },
-    });
-    console.log("submit");
-    router.push("/");
-  };
-
+function RegistryForm<
+  A extends number | string,
+  X,
+  Z extends { [index: string]: A }
+>({
+  date,
+  nest = true,
+  submitHandler,
+  modal,
+  timeRegestry = true,
+  initialState,
+}: RegistryFormProps<X, Z>) {
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={initialState}
       onSubmit={(values, actions) => {
         console.log({ values, actions });
-        submitHandler(values);
+        submitHandler({
+          id: v4(),
+          registeredAt: {
+            month: date.clone().format("M"),
+            day: date.clone().format("D"),
+            year: date.clone().format("YYYY"),
+            time: date.clone().format("h:mm:ss a"),
+          },
+          taskId: values.taskId,
+          action: values.action,
+          actualTime: values.actualTime,
+        });
       }}
       validationSchema={validationSchema}
       render={({
@@ -80,18 +84,28 @@ function Form() {
         handleBlur,
         handleSubmit,
         handleReset,
-      }: FormikProps<MyFormValues>) => {
+      }) => {
         return (
-          <FormContainer onSubmit={handleSubmit}>
+          <FormContainer onSubmit={handleSubmit} timeRegestry={timeRegestry}>
+            <CancelButton
+              onClick={() => {
+                modal((prev) => {
+                  return !prev;
+                });
+              }}
+            >
+              Cancel
+            </CancelButton>
+
             <Field
-              name="title"
+              name="taskId"
               render={({ field, form, meta }: FieldProps) => {
                 return (
                   <TextInputContainer>
                     <TextInput
                       {...field}
-                      label="Title"
-                      placeholder="Enter your Title"
+                      label="TaskId"
+                      placeholder="Enter your TaskID"
                       autoFocus={false}
                       type="text"
                     />
@@ -100,21 +114,21 @@ function Form() {
               }}
             />
 
-            <ErrorMessage name="title">
+            <ErrorMessage name="taskId">
               {(message) => {
                 return <ErrorIndicator message={message} />;
               }}
             </ErrorMessage>
 
             <Field
-              name="description"
+              name="action"
               render={({ field, form, meta }: FieldProps) => {
                 return (
                   <TextInputContainer>
                     <TextInput
                       {...field}
-                      label="Description"
-                      placeholder="Enter your description"
+                      label="Actions"
+                      placeholder="Enter your actions"
                       autoFocus={false}
                       type="textarea"
                     />
@@ -123,21 +137,21 @@ function Form() {
               }}
             />
 
-            <ErrorMessage name="description">
+            <ErrorMessage name="action">
               {(message) => {
                 return <ErrorIndicator message={message} />;
               }}
             </ErrorMessage>
 
             <Field
-              name="estimatedTime"
+              name="actualTime"
               render={({ field, form, meta }: FieldProps) => {
                 return (
                   <TextInputContainer>
                     <TextInput
                       {...field}
-                      label="Estimated Time"
-                      placeholder="Enter your estimated time"
+                      label="Actual Time"
+                      placeholder="Enter your actions"
                       autoFocus={false}
                       type="number"
                     />
@@ -146,35 +160,14 @@ function Form() {
               }}
             />
 
-            <ErrorMessage name="estimatedTime">
-              {(message) => {
-                return <ErrorIndicator message={message} />;
-              }}
-            </ErrorMessage>
-
-            <Field
-              name="priority"
-              render={({ field, form, meta }: FieldProps) => {
-                return (
-                  <SelectInputContainer>
-                    <SelectInput
-                      {...field}
-                      label="Priority"
-                      options={selectOptions}
-                    />
-                  </SelectInputContainer>
-                );
-              }}
-            />
-
-            <ErrorMessage name="priority">
+            <ErrorMessage name="actualTime">
               {(message) => {
                 return <ErrorIndicator message={message} />;
               }}
             </ErrorMessage>
 
             <ButtonContainer isResetDisable={false} disableSubmit={false}>
-              <button type="submit">Create Task</button>
+              <button type="submit">Sign in</button>
               <button
                 type="reset"
                 disabled={
@@ -194,4 +187,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default RegistryForm;

@@ -2,12 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/Cell/*": ["Components/Cell/*"],
-      "@/Form/*": ["Components/Form/*"],
-      "@/Input/*": ["Components/Input/*"],
-      "@/Layout/*": ["Components/Layout/*"],
-      "@/Navbar/*": ["Components/Navbar/*"],
-      "@/timeRegistry/*": ["Components/timeRegistry/*"]
+      "@/Cell/*": ["components/Cell/*"],
+      "@/Form/*": ["components/Form/*"],
+      "@/Input/*": ["components/Input/*"],
+      "@/Layout/*": ["components/Layout/*"],
+      "@/Navbar/*": ["components/Navbar/*"],
+      "@/timeRegistry/*": ["components/timeRegistry/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

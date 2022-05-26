@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useCalender from "Hooks/useCalender";
-import Row from "@/timeRegistry/Row";
-import Action from "@/timeRegistry/Action";
+import Row from "@timeRegistry/Row";
+import Action from "@timeRegistry/Action";
 
 function Index() {
   const { calender, previousMonth, nextMonth } = useCalender();

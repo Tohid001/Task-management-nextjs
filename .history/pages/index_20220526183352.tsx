@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import EditableCell from "@/Cell/EditableCell";
-import { TextInput, SelectInput, ErrorIndicator } from "@/Input/index";
+import {
+  TextInput,
+  SelectInput,
+  ErrorIndicator,
+} from "../Components/Input/index";
 import axios from "axios";
-import { data } from "constants/index";
+import { data } from "../constants/index";
 
 const { initialState, selectOptions } = data;
 
