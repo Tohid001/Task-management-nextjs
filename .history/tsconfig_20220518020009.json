@@ -1,14 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/Cell/*": ["Components/Cell/*"],
-      "@/Form/*": ["Components/Form/*"],
-      "@/Input/*": ["Components/Input/*"],
-      "@/Layout/*": ["Components/Layout/*"],
-      "@/Navbar/*": ["Components/Navbar/*"],
-      "@/timeRegistry/*": ["Components/timeRegistry/*"]
-    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -22,8 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
-    // "allowSyntheticDefaultImports": true
+    "incremental": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
