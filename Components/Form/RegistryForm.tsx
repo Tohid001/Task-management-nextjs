@@ -63,13 +63,7 @@ function RegistryForm<
       onSubmit={(values, actions) => {
         console.log({ values, actions });
         submitHandler({
-          id: v4(),
-          registeredAt: {
-            month: date.clone().format("M"),
-            day: date.clone().format("D"),
-            year: date.clone().format("YYYY"),
-            time: date.clone().format("h:mm:ss a"),
-          },
+          registeredAt: date.clone().format("MMMM Do YYYY"),
           taskId: values.taskId,
           action: values.action,
           actualTime: values.actualTime,

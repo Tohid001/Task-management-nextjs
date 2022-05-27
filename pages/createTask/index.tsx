@@ -10,7 +10,6 @@ import {
 } from "formik";
 import * as Yup from "yup";
 
-import { v4 } from "uuid";
 import { TextInput, SelectInput, ErrorIndicator } from "@/Input/index";
 import axios from "axios";
 import moment from "moment";
@@ -50,17 +49,10 @@ function Form() {
   const router = useRouter();
 
   const submitHandler = async (formstates: MyFormValues) => {
-    await axios.post(`http://localhost:3000/tasks`, {
+    const newTask = await axios.post(`api/tasks`, {
       ...formstates,
-      id: v4(),
-      createdAt: {
-        month: moment().format("M"),
-        day: moment().format("D"),
-        year: moment().format("YYYY"),
-        time: moment().format("h:mm:ss a"),
-      },
     });
-    console.log("submit");
+    console.log("submit", newTask);
     router.push("/");
   };
 

@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import EditableCell from "@/Cell/EditableCell";
-import { TextInput, SelectInput, ErrorIndicator } from "@/Input/index";
+import { TextInput, SelectInput } from "@/Input/index";
 import axios from "axios";
 import { data } from "constants/index";
 
-const { initialState, selectOptions } = data;
+const { selectOptions } = data;
 
 interface task {
-  id: string;
+  id: string | number;
   title: string;
   description: string;
   estimatedTime: number;
   priority: string;
-  // createdAt: string;
+  createdAt: string;
+  lastUpdated: string;
 }
 
 function Home() {
@@ -22,23 +23,23 @@ function Home() {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(`http://localhost:3000/tasks`);
-      console.log(response.data);
+      const response = await axios.get(`api/tasks`);
+      console.log("get", response.data);
       setTaskList(response.data);
     };
     fetch();
   }, []);
 
-  const deleteHandler = async (id: string) => {
-    await axios.delete(`http://localhost:3000/tasks/${id}`);
+  const deleteHandler = async (id: string | number) => {
+    await axios.delete(`api/tasks/${id}`);
     const filteredTasks = taskList.filter((task, index) => {
       return task.id !== id;
     });
     setTaskList(filteredTasks);
   };
 
-  const taskInfoFieldUpdateHandler = async (id: string, body: {}) => {
-    await axios.patch(`http://localhost:3000/tasks/${id}`, body);
+  const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
+    await axios.patch(`api/tasks/${id}`, body);
     const index: number = taskList?.findIndex((task) => {
       return task.id === id;
     });
