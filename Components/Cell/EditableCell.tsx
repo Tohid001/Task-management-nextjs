@@ -25,11 +25,11 @@ import { ErrorIndicator } from "@/Input/index";
 // };
 
 type EditableCellProps<T, X> = {
-  id: string;
+  id: string | number;
   initialState: T;
   value: string | number;
   children: (options: FieldProps) => React.ReactNode;
-  taskInfoFieldUpdateHandler: (id: string, formstates: T) => void;
+  taskInfoFieldUpdateHandler: (id: string | number, formstates: T) => void;
 };
 
 function EditableCell<
@@ -128,15 +128,17 @@ function EditableCell<
         />
       )}
 
-      <button
-        onClick={() => {
-          setEdit((prev) => {
-            return !prev;
-          });
-        }}
-      >
-        <FaEdit color="blue" size="1rem" />
-      </button>
+      {!isEdit && (
+        <button
+          onClick={() => {
+            setEdit((prev) => {
+              return !prev;
+            });
+          }}
+        >
+          <FaEdit color="blue" size="1rem" />
+        </button>
+      )}
     </SubRow>
   );
 }

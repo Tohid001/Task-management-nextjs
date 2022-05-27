@@ -6,11 +6,16 @@ import { AiFillDelete, AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 import moment from "moment";
 
-interface rTask {
+// import { rTask } from "database/db";
+
+export interface rTask {
   id: string;
   taskId: string;
   action: string;
   actualTime: number;
+  registeredAt: string;
+  createdAt: string;
+  lastUpdated: string;
 }
 
 function Row({
@@ -26,9 +31,7 @@ function Row({
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:3000/timeRegistry?registeredAt.month=${date
-          .clone()
-          .format("M")}&registeredAt.day=${date.clone().format("D")}`
+        `api/timeRegistry/date/${date.clone().format("MMMM Do YYYY")}`
       );
 
       setRtask(response.data);
@@ -36,8 +39,8 @@ function Row({
     fetch();
   }, [date]);
 
-  const taskInfoFieldUpdateHandler = async (id: string, body: {}) => {
-    await axios.patch(`http://localhost:3000/timeRegistry/${id}`, body);
+  const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
+    await axios.patch(`api/timeRegistry/${id}`, body);
     const index = rTask.findIndex((task) => {
       return task.id === id;
     });
@@ -47,13 +50,10 @@ function Row({
   };
 
   const addTasktoSpecificRehgistryDate = async (body: rTask) => {
-    const response = await axios.post(
-      `http://localhost:3000/timeRegistry`,
-      body
-    );
+    const response = await axios.post(`api/timeRegistry`, body);
     console.log("submit called", response);
 
-    setRtask([...rTask, body]);
+    setRtask([...rTask, response.data.newRegistry]);
     setModal((prev) => !prev);
   };
 
