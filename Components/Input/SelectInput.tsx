@@ -1,5 +1,5 @@
-import React from "react";
-import { selectProps } from "./interfaces";
+import React from 'react';
+import { selectProps } from './interfaces';
 
 function SelectInput({
   onBlur,

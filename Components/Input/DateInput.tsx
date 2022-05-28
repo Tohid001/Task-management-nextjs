@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { inputProps } from "./interfaces";
+import React, { useRef, useEffect } from 'react';
+import { inputProps } from './interfaces';
 
 function DateInput({
   value,
@@ -7,7 +7,7 @@ function DateInput({
   onChange,
   placeholder,
   label,
-  type = "date",
+  type = 'date',
 }: inputProps) {
   // const inputRef = useRef(null);
   // useEffect(() => {

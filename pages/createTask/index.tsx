@@ -1,5 +1,5 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React from 'react';
+import { useRouter } from 'next/router';
 import {
   Formik,
   FormikHelpers,
@@ -7,21 +7,21 @@ import {
   Field,
   FieldProps,
   ErrorMessage,
-} from "formik";
-import * as Yup from "yup";
+} from 'formik';
+import * as Yup from 'yup';
 
-import { TextInput, SelectInput, ErrorIndicator } from "@/Input/index";
-import axios from "axios";
-import moment from "moment";
+import { TextInput, SelectInput, ErrorIndicator } from '@/Input/index';
+import axios from 'axios';
+import moment from 'moment';
 
-import { data } from "constants/index";
+import { data } from 'constants/index';
 
 import {
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   SelectInputContainer,
-} from "@/Form/Form.styled";
+} from '@/Form/Form.styled';
 
 const { selectOptions } = data;
 interface MyFormValues {
@@ -32,17 +32,17 @@ interface MyFormValues {
 }
 
 const initialValues: MyFormValues = {
-  title: "",
-  description: "",
+  title: '',
+  description: '',
   estimatedTime: 0,
-  priority: "",
+  priority: '',
 };
 
 const validationSchema = Yup.object({
-  title: Yup.string().required("Please Enter your title"),
-  description: Yup.string().required("Please Enter your description"),
-  estimatedTime: Yup.number().required("Please Enter your estimated time"),
-  priority: Yup.string().required("Please select your priority"),
+  title: Yup.string().required('Please Enter your title'),
+  description: Yup.string().required('Please Enter your description'),
+  estimatedTime: Yup.number().required('Please Enter your estimated time'),
+  priority: Yup.string().required('Please select your priority'),
 });
 
 function Form() {
@@ -52,8 +52,8 @@ function Form() {
     const newTask = await axios.post(`api/tasks`, {
       ...formstates,
     });
-    console.log("submit", newTask);
-    router.push("/");
+    console.log('submit', newTask);
+    router.push('/');
   };
 
   return (

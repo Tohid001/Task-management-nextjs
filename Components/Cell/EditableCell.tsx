@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { FaSave, FaEdit } from "react-icons/fa";
-import { GiCancel } from "react-icons/gi";
+import React, { useState } from 'react';
+import { FaSave, FaEdit } from 'react-icons/fa';
+import { GiCancel } from 'react-icons/gi';
 // import useForm from "../../Hooks/useForm";
-import { IconContainer, SubRow } from "./EditableCell.styled";
+import { IconContainer, SubRow } from './EditableCell.styled';
 import {
   Formik,
   FormikHelpers,
@@ -10,9 +10,9 @@ import {
   Field,
   FieldProps,
   ErrorMessage,
-} from "formik";
-import * as Yup from "yup";
-import { ErrorIndicator } from "@/Input/index";
+} from 'formik';
+import * as Yup from 'yup';
+import { ErrorIndicator } from '@/Input/index';
 
 // interface MyFormValues {
 //   [index: string]: string | number;
@@ -45,7 +45,7 @@ function EditableCell<
   const [isEdit, setEdit] = useState<boolean>(false);
 
   const validationSchema = Yup.object({
-    [Object.keys(initialState)[0]]: Yup.string().required("required"),
+    [Object.keys(initialState)[0]]: Yup.string().required('required'),
   });
 
   return (
@@ -64,7 +64,7 @@ function EditableCell<
           }}
           validationSchema={validationSchema}
           render={({ values, handleSubmit, handleReset }) => {
-            console.log("values", values);
+            console.log('values', values);
             return (
               <form onSubmit={handleSubmit}>
                 <Field

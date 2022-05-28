@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SubRow = styled.div`
   position: relative;
@@ -31,17 +31,17 @@ export const IconContainer = styled.div<IconContainerProps>`
     all: unset;
     cursor: pointer;
     &:nth-child(1) {
-      color: ${({ isEdit }) => (isEdit ? "rgba(255, 47, 0, 0.5)" : "null")};
+      color: ${({ isEdit }) => (isEdit ? 'rgba(255, 47, 0, 0.5)' : 'null')};
       &:hover {
-        color: ${({ isEdit }) => (isEdit ? "red" : "null")};
+        color: ${({ isEdit }) => (isEdit ? 'red' : 'null')};
       }
     }
     &:nth-child(2) {
       color: ${({ isAbled, isEdit }) =>
-        isEdit && !isAbled ? "rgba(101, 103, 105)" : "null"};
+        isEdit && !isAbled ? 'rgba(101, 103, 105)' : 'null'};
       &:hover {
         color: ${({ isEdit, isAbled }) =>
-          isEdit && !isAbled ? "null" : "black"};
+          isEdit && !isAbled ? 'null' : 'black'};
       }
     }
   }

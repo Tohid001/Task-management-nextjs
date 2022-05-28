@@ -1,5 +1,5 @@
-import React from "react";
-import type { ReactElement } from "react";
+import React from 'react';
+import type { ReactElement } from 'react';
 import {
   Formik,
   FormikHelpers,
@@ -7,15 +7,15 @@ import {
   Field,
   FieldProps,
   ErrorMessage,
-} from "formik";
-import * as Yup from "yup";
-import { TextInput, ErrorIndicator } from "@/Input/index";
+} from 'formik';
+import * as Yup from 'yup';
+import { TextInput, ErrorIndicator } from '@/Input/index';
 
 import {
   FormContainer,
   TextInputContainer,
   ButtonContainer,
-} from "@/Form/Form.styled";
+} from '@/Form/Form.styled';
 
 interface MyFormValues {
   email: string;
@@ -23,17 +23,17 @@ interface MyFormValues {
 }
 
 const initialValues: MyFormValues = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const validationSchema = Yup.object({
-  email: Yup.string().email("Invalid email format").required("required"),
+  email: Yup.string().email('Invalid email format').required('required'),
   password: Yup.string()
-    .required("Please Enter your password")
+    .required('Please Enter your password')
     .matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+      'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character'
     ),
 });
 

@@ -1,5 +1,5 @@
-import React from "react";
-import type { ReactElement } from "react";
+import React from 'react';
+import type { ReactElement } from 'react';
 import {
   Formik,
   FormikHelpers,
@@ -7,18 +7,18 @@ import {
   Field,
   FieldProps,
   ErrorMessage,
-} from "formik";
-import * as Yup from "yup";
-import { TextInput, ErrorIndicator } from "@/Input/index";
-import { v4 } from "uuid";
-import { Moment } from "moment";
+} from 'formik';
+import * as Yup from 'yup';
+import { TextInput, ErrorIndicator } from '@/Input/index';
+import { v4 } from 'uuid';
+import { Moment } from 'moment';
 
 import {
   FormContainer,
   TextInputContainer,
   ButtonContainer,
   CancelButton,
-} from "@/Form/Form.styled";
+} from '@/Form/Form.styled';
 
 // interface MyFormValues {
 //   [index: string]: string | number;
@@ -31,9 +31,9 @@ import {
 // };
 
 const validationSchema = Yup.object({
-  taskId: Yup.string().required("required"),
-  action: Yup.string().required("Please Enter your actions"),
-  actualTime: Yup.number().required("Please Enter your actual time"),
+  taskId: Yup.string().required('required'),
+  action: Yup.string().required('Please Enter your actions'),
+  actualTime: Yup.number().required('Please Enter your actual time'),
 });
 
 type RegistryFormProps<X, Z> = {
@@ -63,7 +63,7 @@ function RegistryForm<
       onSubmit={(values, actions) => {
         console.log({ values, actions });
         submitHandler({
-          registeredAt: date.clone().format("MMMM Do YYYY"),
+          registeredAt: date.clone().format('MMMM Do YYYY'),
           taskId: values.taskId,
           action: values.action,
           actualTime: values.actualTime,

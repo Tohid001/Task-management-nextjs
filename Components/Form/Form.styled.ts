@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Common = styled.form`
   border-radius: 5px;
@@ -83,7 +83,7 @@ export const ButtonContainer = styled.div<{
     }
     &:nth-child(2) {
       background: ${(isResetDisable) =>
-        isResetDisable ? "rgba(109, 221, 227)" : "rgba(168, 173, 170)"};
+        isResetDisable ? 'rgba(109, 221, 227)' : 'rgba(168, 173, 170)'};
     }
   }
 `;

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { textProps } from "./interfaces";
+import React, { useRef, useEffect } from 'react';
+import { textProps } from './interfaces';
 
 function TextInput({
   value,
@@ -9,7 +9,7 @@ function TextInput({
   autoFocus = true,
   placeholder,
   label,
-  type = "text",
+  type = 'text',
 }: textProps) {
   const inputRef = useRef(null);
   // useEffect(() => {

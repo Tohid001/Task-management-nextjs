@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import RegistryForm from "@/Form/RegistryForm";
-import EditableCell from "@/Cell/EditableCell";
-import { TextInput, DateInput } from "@/Input/index";
-import { AiFillDelete, AiOutlinePlus } from "react-icons/ai";
-import axios from "axios";
-import moment from "moment";
+import React, { useState, useEffect } from 'react';
+import RegistryForm from '@/Form/RegistryForm';
+import EditableCell from '@/Cell/EditableCell';
+import { TextInput, DateInput } from '@/Input/index';
+import { AiFillDelete, AiOutlinePlus } from 'react-icons/ai';
+import axios from 'axios';
+import moment from 'moment';
 
 // import { rTask } from "database/db";
 
@@ -31,7 +31,7 @@ function Row({
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `api/timeRegistry/date/${date.clone().format("MMMM Do YYYY")}`
+        `api/timeRegistry/date/${date.clone().format('MMMM Do YYYY')}`
       );
 
       setRtask(response.data);
@@ -51,7 +51,7 @@ function Row({
 
   const addTasktoSpecificRehgistryDate = async (body: rTask) => {
     const response = await axios.post(`api/timeRegistry`, body);
-    console.log("submit called", response);
+    console.log('submit called', response);
 
     setRtask([...rTask, response.data.newRegistry]);
     setModal((prev) => !prev);
@@ -61,7 +61,7 @@ function Row({
     <>
       <tr>
         <th id="date" rowSpan={rTask?.length + 1 || 1}>
-          {date.format("MMMM Do")}
+          {date.format('MMMM Do')}
           <span
             onClick={() => {
               setModal((prev) => !prev);
@@ -74,8 +74,8 @@ function Row({
               date={date}
               submitHandler={addTasktoSpecificRehgistryDate}
               initialState={{
-                taskId: "",
-                action: "",
+                taskId: '',
+                action: '',
                 actualTime: 0,
               }}
               modal={setModal}

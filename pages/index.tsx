@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { AiFillDelete } from "react-icons/ai";
-import EditableCell from "@/Cell/EditableCell";
-import { TextInput, SelectInput } from "@/Input/index";
-import axios from "axios";
-import { data } from "constants/index";
+import React, { useState, useEffect } from 'react';
+import { AiFillDelete } from 'react-icons/ai';
+import EditableCell from '@/Cell/EditableCell';
+import { TextInput, SelectInput } from '@/Input/index';
+import axios from 'axios';
+import { data } from 'constants/index';
 
 const { selectOptions } = data;
 
@@ -24,7 +24,7 @@ function Home() {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(`api/tasks`);
-      console.log("get", response.data);
+      console.log('get', response.data);
       setTaskList(response.data);
     };
     fetch();

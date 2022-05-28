@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const parentsTyles: React.CSSProperties = {
-  display: "flex",
-  justifyContent: "space-between",
-  width: "30%",
-  marginInline: "auto",
+  display: 'flex',
+  justifyContent: 'space-between',
+  width: '30%',
+  marginInline: 'auto',
 };
 
 interface ActionProps {
@@ -18,7 +18,7 @@ function Action({ previousMonth, nextMonth }: ActionProps) {
       <button
         onClick={previousMonth}
         style={{
-          cursor: "pointer",
+          cursor: 'pointer',
         }}
       >
         prev
@@ -26,7 +26,7 @@ function Action({ previousMonth, nextMonth }: ActionProps) {
       <button
         onClick={nextMonth}
         style={{
-          cursor: "pointer",
+          cursor: 'pointer',
         }}
       >
         next
