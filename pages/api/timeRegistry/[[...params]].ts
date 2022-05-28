@@ -4,7 +4,7 @@ import fs from "fs";
 const moment = require("moment");
 import { v4 } from "uuid";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function (req: NextApiRequest, res: NextApiResponse) {
   const { timeRegistries } = db;
   const params = req.query.params;
   console.log(params);
@@ -52,4 +52,4 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // res.status(200).json(params);
-};
+}

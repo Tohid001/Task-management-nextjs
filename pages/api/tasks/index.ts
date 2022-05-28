@@ -4,7 +4,7 @@ import fs from "fs";
 const moment = require("moment");
 import { v4 } from "uuid";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function (req: NextApiRequest, res: NextApiResponse) {
   const { tasks } = db;
 
   if (req.method === "GET") {
@@ -21,4 +21,4 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     fs.writeFileSync("database/db.json", JSON.stringify(db, null, 4));
     res.status(200).json({ success: true, newTask: { ...newTask } });
   }
-};
+}

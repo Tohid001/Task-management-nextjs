@@ -3,7 +3,7 @@ import db from "database/db.json";
 import fs from "fs";
 import moment from "moment";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function (req: NextApiRequest, res: NextApiResponse) {
   const { tasks } = db;
   const { taskId } = req.query;
   if (req.method === "PATCH") {
@@ -44,4 +44,4 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({ success: true, deletedTask });
   }
-};
+}

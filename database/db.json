@@ -26,6 +26,15 @@
             "priority": "p3",
             "createdAt": "May 27th 2022, 2:17:33 am",
             "lastUpdated": "May 27th 2022, 4:41:16 am"
+        },
+        {
+            "id": "Task-4",
+            "title": "gffxbx",
+            "description": "vvzv",
+            "estimatedTime": 343,
+            "priority": "p2",
+            "createdAt": "May 28th 2022, 10:25:37 pm",
+            "lastUpdated": "May 28th 2022, 10:25:37 pm"
         }
     ],
     "timeRegistries": [
@@ -50,11 +59,11 @@
         {
             "id": "dacef0d4-5227-4c21-b70e-4072fd589769",
             "registeredAt": "May 4th 2022",
-            "taskId": "Task-7",
+            "taskId": "csdlc",
             "action": "lorem ipsumh.",
             "actualTime": 901,
             "createdAt": "May 27th 2022, 4:34:51 am",
-            "lastUpdated": "May 27th 2022, 4:42:34 am"
+            "lastUpdated": "May 29th 2022, 12:55:32 am"
         },
         {
             "id": "ff0d653f-483e-411a-bf87-4a3e47225a81",
@@ -158,11 +167,29 @@
         {
             "id": "bcb77ff3-d9b3-4978-8a5d-6cff61e17319",
             "registeredAt": "May 31st 2022",
-            "taskId": "0",
+            "taskId": "aadad",
             "action": "njsjsjssa",
             "actualTime": 123,
             "createdAt": "May 27th 2022, 4:50:46 am",
-            "lastUpdated": "May 27th 2022, 4:50:58 am"
+            "lastUpdated": "May 29th 2022, 12:55:51 am"
+        },
+        {
+            "id": "4eee1598-3a4a-4ae1-b046-3668f44b202b",
+            "registeredAt": "May 2nd 2022",
+            "taskId": "ndfd",
+            "action": "bgdsd",
+            "actualTime": 243243,
+            "createdAt": "May 28th 2022, 10:25:56 pm",
+            "lastUpdated": "May 28th 2022, 10:25:56 pm"
+        },
+        {
+            "id": "9d518486-1469-43c1-bc3e-d9914ff87b27",
+            "registeredAt": "May 1st 2022",
+            "taskId": ",cs cc",
+            "action": "nllnac",
+            "actualTime": 4,
+            "createdAt": "May 29th 2022, 12:55:27 am",
+            "lastUpdated": "May 29th 2022, 12:55:27 am"
         }
     ]
 }
