@@ -4,7 +4,10 @@ import fs from "fs";
 const moment = require("moment");
 import { v4 } from "uuid";
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
+export default function Timeregestry(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { timeRegistries } = db;
   const params = req.query.params;
   console.log(params);

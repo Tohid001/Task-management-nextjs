@@ -4,7 +4,7 @@ import fs from "fs";
 const moment = require("moment");
 import { v4 } from "uuid";
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
+export default function Tasks(req: NextApiRequest, res: NextApiResponse) {
   const { tasks } = db;
 
   if (req.method === "GET") {

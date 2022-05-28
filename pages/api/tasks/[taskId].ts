@@ -3,7 +3,7 @@ import db from "database/db.json";
 import fs from "fs";
 import moment from "moment";
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
+export default function Task(req: NextApiRequest, res: NextApiResponse) {
   const { tasks } = db;
   const { taskId } = req.query;
   if (req.method === "PATCH") {
