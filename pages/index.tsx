@@ -160,6 +160,7 @@ function Home() {
         totalTasks={taskList.length}
         paginate={paginate}
         currentTotalTasks={currentTasks.length}
+        currentPage={currentPage}
       />
     </>
   );
