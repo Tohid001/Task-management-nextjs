@@ -8,7 +8,8 @@
       "@/Layout/*": ["Components/Layout/*"],
       "@/Navbar/*": ["Components/Navbar/*"],
       "@/timeRegistry/*": ["Components/timeRegistry/*"],
-      "@/Editor/*": ["Components/Editor/*"]
+      "@/Editor/*": ["Components/Editor/*"],
+      "@/Pagination/*": ["Components/Pagination//*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
