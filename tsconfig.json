@@ -7,7 +7,8 @@
       "@/Input/*": ["Components/Input/*"],
       "@/Layout/*": ["Components/Layout/*"],
       "@/Navbar/*": ["Components/Navbar/*"],
-      "@/timeRegistry/*": ["Components/timeRegistry/*"]
+      "@/timeRegistry/*": ["Components/timeRegistry/*"],
+      "@/Editor/*": ["Components/Editor/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

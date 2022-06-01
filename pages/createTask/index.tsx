@@ -11,6 +11,8 @@ import {
 import * as Yup from 'yup';
 
 import { TextInput, SelectInput, ErrorIndicator } from '@/Input/index';
+
+import EditorField from '@/Editor/EditorField';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -98,7 +100,7 @@ function Form() {
               }}
             </ErrorMessage>
 
-            <Field
+            {/* <Field
               name="description"
               render={({ field, form, meta }: FieldProps) => {
                 return (
@@ -114,6 +116,20 @@ function Form() {
                 );
               }}
             />
+
+            <ErrorMessage name="description">
+              {(message) => {
+                return <ErrorIndicator message={message} />;
+              }}
+            </ErrorMessage> */}
+
+            <TextInputContainer>
+              <EditorField
+                label="Description"
+                name="description"
+                apiKey="ipfce56w91n0aaucgxgsimqjt4z8nuunyz24md77pwl46d1s"
+              />
+            </TextInputContainer>
 
             <ErrorMessage name="description">
               {(message) => {

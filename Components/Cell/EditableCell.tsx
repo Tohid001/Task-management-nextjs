@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSave, FaEdit } from 'react-icons/fa';
 import { GiCancel } from 'react-icons/gi';
-// import useForm from "../../Hooks/useForm";
+import { Markup } from 'interweave';
 import { IconContainer, SubRow } from './EditableCell.styled';
 import {
   Formik,
@@ -51,7 +51,7 @@ function EditableCell<
   return (
     <SubRow>
       {!isEdit ? (
-        <p>{value}</p>
+        <Markup content={value.toString()} />
       ) : (
         <Formik
           initialValues={initialState}
@@ -112,11 +112,6 @@ function EditableCell<
                           .toLowerCase() ===
                         Object.values(values)[0].toString().toLowerCase()
                       }
-                      // onClick={() => {
-                      //   setEdit((prev) => {
-                      //     return !prev;
-                      //   });
-                      // }}
                     >
                       <FaSave size="1rem" />
                     </button>
