@@ -5,8 +5,9 @@ import { TextInput, SelectInput } from '@/Input/index';
 import Pagination from '@/Pagination/Pagination';
 import axios from 'axios';
 import { data } from 'constants/index';
+import { usePagination } from '@/Hooks/usePagination';
 
-const { selectOptions, taskListColumns } = data;
+const { selectOptions } = data;
 
 interface task {
   id: string | number;
@@ -20,8 +21,23 @@ interface task {
 
 function Home() {
   const [taskList, setTaskList] = useState<task[]>([] as task[]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [tasksPerPage, setTasksPerPage] = useState<number>(4);
+
+  const {
+    currentPage,
+    paginate,
+    handleNextPage,
+    handlePrevPage,
+    itemsPerPageHandler,
+    currentPageItems,
+    pageNumbers,
+  } = usePagination({
+    currentPageNumber: 1,
+    numberofItemsPerPage: 4,
+    pageLimit: 4,
+    maxPageNumberLimit: 4,
+    minPageNumberLimit: 0,
+    totalItems: taskList,
+  });
 
   useEffect(() => {
     const fetch = async () => {
@@ -31,16 +47,6 @@ function Home() {
     };
     fetch();
   }, []);
-
-  const indexofLastTask = currentPage * tasksPerPage;
-  const indexofFirstTask = indexofLastTask - tasksPerPage;
-  const currentTasks = taskList.slice(indexofFirstTask, indexofLastTask);
-
-  console.log('currentTasks', currentTasks);
-
-  const paginate = (number: number): void => {
-    setCurrentPage(number);
-  };
 
   const deleteHandler = async (id: string | number) => {
     await axios.delete(`api/tasks/${id}`);
@@ -78,8 +84,8 @@ function Home() {
           </tr>
         </thead>
         <tbody>
-          {currentTasks.length > 0 &&
-            currentTasks.map((task, index) => {
+          {currentPageItems.length > 0 &&
+            currentPageItems.map((task, index) => {
               return (
                 <>
                   <tr key={index}>
@@ -156,11 +162,11 @@ function Home() {
         </tbody>
       </table>
       <Pagination
-        tasksPerpage={tasksPerPage}
-        totalTasks={taskList.length}
+        pageNumbers={pageNumbers}
         paginate={paginate}
-        currentTotalTasks={currentTasks.length}
         currentPage={currentPage}
+        handleNext={handleNextPage}
+        handlePrev={handlePrevPage}
       />
     </>
   );

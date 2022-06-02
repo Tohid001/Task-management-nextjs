@@ -89,96 +89,6 @@
       "priority": "p4",
       "createdAt": "May 27th 2022, 2:17:06 am",
       "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-11",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-12",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-13",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-14",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-15",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-16",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-17",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-18",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-19",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-20",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
     }
   ],
   "timeRegistries": [
@@ -316,6 +226,15 @@
       "actualTime": 123,
       "createdAt": "May 27th 2022, 4:50:46 am",
       "lastUpdated": "May 27th 2022, 4:50:58 am"
+    },
+    {
+      "id": "40bd0e2f-825a-426f-806f-b799c76e67b0",
+      "registeredAt": "June 1st 2022",
+      "taskId": "acacac",
+      "action": ".s;ssv;s mv",
+      "actualTime": 12,
+      "createdAt": "June 2nd 2022, 2:26:23 am",
+      "lastUpdated": "June 2nd 2022, 2:26:28 am"
     }
   ]
 }

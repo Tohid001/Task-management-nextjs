@@ -1,33 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+
+import { paginateType, handleNextPrevType } from '@/Hooks/usePagination';
+
+type paginationProps = {
+  pageNumbers: number[];
+  paginate: paginateType;
+  currentPage: number;
+  handleNext: handleNextPrevType;
+  handlePrev: handleNextPrevType;
+};
 
 function Pagination({
-  tasksPerpage,
-  totalTasks,
   paginate,
-  currentTotalTasks,
   currentPage,
-}: {
-  tasksPerpage: number;
-  totalTasks: number;
-  paginate: (param: number) => void;
-  currentTotalTasks: number;
-  currentPage: number;
-}) {
-  useEffect(() => {
-    !currentTotalTasks && paginate(Math.ceil(totalTasks / tasksPerpage));
-  });
-  const pageNumbers = [];
-
-  //   const [currentP, setCurrentp] = useState(1);
-
-  for (let i = 1; i <= Math.ceil(totalTasks / tasksPerpage); i++) {
-    if (currentTotalTasks === 0) {
-    }
-    pageNumbers.push(i);
-  }
-
-  console.log('currentPage', currentPage);
-
+  pageNumbers,
+  handleNext,
+  handlePrev,
+}: paginationProps) {
   return (
     <ul
       style={{
@@ -37,6 +26,21 @@ function Pagination({
         listStyle: 'none',
       }}
     >
+      <li style={{ padding: '.5em' }}>
+        <button
+          disabled={currentPage == 1}
+          style={{
+            padding: '1em',
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            handlePrev();
+          }}
+        >
+          Prev
+        </button>
+      </li>
+
       {pageNumbers.map((number) => {
         return (
           <li key={number} style={{ padding: '.5em' }}>
@@ -48,7 +52,6 @@ function Pagination({
               }}
               onClick={() => {
                 paginate(number);
-                // setCurrentp(number);
               }}
             >
               {number}
@@ -56,6 +59,20 @@ function Pagination({
           </li>
         );
       })}
+      <li style={{ padding: '.5em' }}>
+        <button
+          disabled={currentPage == pageNumbers.length}
+          style={{
+            padding: '1em',
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            handleNext();
+          }}
+        >
+          Next
+        </button>
+      </li>
     </ul>
   );
 }
