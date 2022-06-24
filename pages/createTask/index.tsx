@@ -54,7 +54,7 @@ function Form() {
       ...formstates,
       id: `Task-${Math.random()
         .toString(36)
-        .substring(2, len + 2)}`,
+        .substring(2, 5 + 2)}`,
       createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
     });
