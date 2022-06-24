@@ -50,7 +50,7 @@ function Form() {
   const [newTaskId, setNewTaskId] = useState<number>(0);
 
   const submitHandler = async (formstates: MyFormValues) => {
-    const newTask = await axios.post(`http://localhost:5000/tasks`, {
+    const newTask = await axios.post(`https://etmfjs.herokuapp.com/tasks`, {
       ...formstates,
       id: `Task-${newTaskId}`,
       createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
@@ -62,7 +62,7 @@ function Form() {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(`http://localhost:5000/tasks`);
+      const response = await axios.get(`https://etmfjs.herokuapp.com/tasks`);
 
       setNewTaskId(response.data.length + 1);
     };

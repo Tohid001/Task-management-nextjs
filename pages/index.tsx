@@ -24,7 +24,7 @@ function Home() {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(`http://localhost:5000/tasks`);
+      const response = await axios.get(`https://etmfjs.herokuapp.com/tasks`);
       console.log('get', response.data);
       setTaskList(response.data);
     };
@@ -32,7 +32,7 @@ function Home() {
   }, []);
 
   const deleteHandler = async (id: string | number) => {
-    await axios.delete(`http://localhost:5000/tasks/${id}`);
+    await axios.delete(`https://etmfjs.herokuapp.com/tasks/${id}`);
     const filteredTasks = taskList.filter((task, index) => {
       return task.id !== id;
     });
@@ -40,7 +40,7 @@ function Home() {
   };
 
   const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
-    await axios.patch(`http://localhost:5000/tasks/${id}`, {
+    await axios.patch(`https://etmfjs.herokuapp.com/tasks/${id}`, {
       ...body,
       lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
     });

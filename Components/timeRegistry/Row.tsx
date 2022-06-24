@@ -32,12 +32,12 @@ function Row({
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:5000/timeRegistries?registeredAt=${date
+        `https://etmfjs.herokuapp.com/timeRegistries?registeredAt=${date
           .clone()
           .format('MMMM Do YYYY')}`
       );
 
-      const response2 = await axios.get(`http://localhost:5000/tasks`);
+      const response2 = await axios.get(`https://etmfjs.herokuapp.com/tasks`);
 
       const taskIdlist = response2.data.map(({ id }, i) => {
         return id;
@@ -50,7 +50,10 @@ function Row({
   }, [date]);
 
   const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
-    await axios.patch(`http://localhost:5000/timeRegistries/${id}`, body);
+    await axios.patch(
+      `https://etmfjs.herokuapp.com/timeRegistries/${id}`,
+      body
+    );
     const index = rTask.findIndex((task) => {
       return task.id === id;
     });
@@ -61,7 +64,7 @@ function Row({
 
   const addTasktoSpecificRehgistryDate = async (body: rTask) => {
     const response = await axios.post(
-      `http://localhost:5000/timeRegistries`,
+      `https://etmfjs.herokuapp.com/timeRegistries`,
       body
     );
     console.log('submit called', response);
