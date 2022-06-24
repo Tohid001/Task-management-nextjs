@@ -47,7 +47,6 @@ const validationSchema = Yup.object({
 
 function Form() {
   const router = useRouter();
-  const [newTaskId, setNewTaskId] = useState<number>(0);
 
   const submitHandler = async (formstates: MyFormValues) => {
     const newTask = await axios.post(`https://etmfjs.herokuapp.com/tasks`, {
@@ -61,15 +60,6 @@ function Form() {
     console.log('submit', newTask);
     router.push('/');
   };
-
-  useEffect(() => {
-    const fetch = async () => {
-      const response = await axios.get(`https://etmfjs.herokuapp.com/tasks`);
-
-      setNewTaskId(response.data.length + 1);
-    };
-    fetch();
-  }, []);
 
   return (
     <Formik
