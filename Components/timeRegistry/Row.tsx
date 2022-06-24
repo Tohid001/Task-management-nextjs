@@ -110,12 +110,6 @@ function Row({
               >
                 {(options) => {
                   return (
-                    // <TextInput
-                    //   {...options.field}
-                    //   placeholder="Enter a taskId"
-                    //   autoFocus={false}
-                    //   type="text"
-                    // />
                     <SelectInput {...options.field} options={taskIdList} />
                   );
                 }}

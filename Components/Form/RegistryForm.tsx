@@ -99,29 +99,6 @@ function RegistryForm<
               Cancel
             </CancelButton>
 
-            {/* <Field
-              name="taskId"
-              render={({ field, form, meta }: FieldProps) => {
-                return (
-                  <TextInputContainer>
-                    <TextInput
-                      {...field}
-                      label="TaskId"
-                      placeholder="Enter your TaskID"
-                      autoFocus={false}
-                      type="text"
-                    />
-                  </TextInputContainer>
-                );
-              }}
-            />
-
-            <ErrorMessage name="taskId">
-              {(message) => {
-                return <ErrorIndicator message={message} />;
-              }}
-            </ErrorMessage> */}
-
             <Field
               name="taskId"
               render={({ field, form, meta }: FieldProps) => {
