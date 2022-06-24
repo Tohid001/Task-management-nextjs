@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Formik,
@@ -47,14 +47,27 @@ const validationSchema = Yup.object({
 
 function Form() {
   const router = useRouter();
+  const [newTaskId, setNewTaskId] = useState<number>(0);
 
   const submitHandler = async (formstates: MyFormValues) => {
-    const newTask = await axios.post(`api/tasks`, {
+    const newTask = await axios.post(`http://localhost:5000/tasks`, {
       ...formstates,
+      id: `Task-${newTaskId}`,
+      createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
     });
     console.log('submit', newTask);
     router.push('/');
   };
+
+  useEffect(() => {
+    const fetch = async () => {
+      const response = await axios.get(`http://localhost:5000/tasks`);
+
+      setNewTaskId(response.data.length + 1);
+    };
+    fetch();
+  }, []);
 
   return (
     <Formik

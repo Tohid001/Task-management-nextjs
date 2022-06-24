@@ -4,6 +4,7 @@ import EditableCell from '@/Cell/EditableCell';
 import { TextInput, SelectInput } from '@/Input/index';
 import axios from 'axios';
 import { data } from 'constants/index';
+import moment from 'moment';
 
 const { selectOptions } = data;
 
@@ -23,7 +24,7 @@ function Home() {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(`api/tasks`);
+      const response = await axios.get(`http://localhost:5000/tasks`);
       console.log('get', response.data);
       setTaskList(response.data);
     };
@@ -31,7 +32,7 @@ function Home() {
   }, []);
 
   const deleteHandler = async (id: string | number) => {
-    await axios.delete(`api/tasks/${id}`);
+    await axios.delete(`http://localhost:5000/tasks/${id}`);
     const filteredTasks = taskList.filter((task, index) => {
       return task.id !== id;
     });
@@ -39,12 +40,19 @@ function Home() {
   };
 
   const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
-    await axios.patch(`api/tasks/${id}`, body);
+    await axios.patch(`http://localhost:5000/tasks/${id}`, {
+      ...body,
+      lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
+    });
     const index: number = taskList?.findIndex((task) => {
       return task.id === id;
     });
     const test = [...taskList];
-    test[index] = { ...test[index], ...body };
+    test[index] = {
+      ...test[index],
+      ...body,
+      lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
+    };
     setTaskList(test);
   };
 

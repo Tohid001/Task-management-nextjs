@@ -1,168 +1,177 @@
 {
-  "tasks": [
-    {
-      "id": "Task-1",
-      "title": "n z, z s ",
-      "description": "nsknsknvn",
-      "estimatedTime": 12200,
-      "priority": "p3",
-      "createdAt": "May 27th 2022, 2:16:53 am",
-      "lastUpdated": "May 27th 2022, 2:16:53 am"
-    },
-    {
-      "id": "Task-2",
-      "title": "alncnlcn",
-      "description": "mnzccc",
-      "estimatedTime": 9.33e75,
-      "priority": "p4",
-      "createdAt": "May 27th 2022, 2:17:06 am",
-      "lastUpdated": "May 27th 2022, 2:17:06 am"
-    },
-    {
-      "id": "Task-3",
-      "title": "hogacnkccncacmmkm m",
-      "description": "o",
-      "estimatedTime": 231313,
-      "priority": "p3",
-      "createdAt": "May 27th 2022, 2:17:33 am",
-      "lastUpdated": "May 27th 2022, 4:41:16 am"
-    }
-  ],
-  "timeRegistries": [
-    {
-      "id": "7e7aea94-e675-4ce2-a863-88aaf44a37ac",
-      "registeredAt": "May 4th 2022",
-      "taskId": "Task-1",
-      "action": "lorem ipsum",
-      "actualTime": 12,
-      "createdAt": "May 27th 2022, 4:34:14 am",
-      "lastUpdated": "May 27th 2022, 4:34:14 am"
-    },
-    {
-      "id": "e876fa1a-5f1a-492a-9d0b-9bd628023163",
-      "registeredAt": "May 4th 2022",
-      "taskId": "Task-2",
-      "action": "ncjnkjnackjn",
-      "actualTime": 89,
-      "createdAt": "May 27th 2022, 4:34:33 am",
-      "lastUpdated": "May 27th 2022, 4:34:33 am"
-    },
-    {
-      "id": "dacef0d4-5227-4c21-b70e-4072fd589769",
-      "registeredAt": "May 4th 2022",
-      "taskId": "Task-7",
-      "action": "lorem ipsumh.",
-      "actualTime": 901,
-      "createdAt": "May 27th 2022, 4:34:51 am",
-      "lastUpdated": "May 27th 2022, 4:42:34 am"
-    },
-    {
-      "id": "ff0d653f-483e-411a-bf87-4a3e47225a81",
-      "registeredAt": "May 21st 2022",
-      "taskId": "Task-89",
-      "action": "asascac",
-      "actualTime": 123,
-      "createdAt": "May 27th 2022, 4:36:59 am",
-      "lastUpdated": "May 27th 2022, 4:36:59 am"
-    },
-    {
-      "id": "d42ff803-49d2-447b-888d-0d678c52e1a8",
-      "registeredAt": "May 21st 2022",
-      "taskId": "lmamacb kl",
-      "action": "asanc",
-      "actualTime": 92929292,
-      "createdAt": "May 27th 2022, 4:37:12 am",
-      "lastUpdated": "May 27th 2022, 4:38:46 am"
-    },
-    {
-      "id": "1d802fde-f30b-4e1f-ba60-867f72baa9f1",
-      "registeredAt": "May 23rd 2022",
-      "taskId": "nm mn .",
-      "action": "jnljnjln",
-      "actualTime": 0,
-      "createdAt": "May 27th 2022, 4:39:12 am",
-      "lastUpdated": "May 27th 2022, 4:43:37 am"
-    },
-    {
-      "id": "29c3114e-2ddd-4c05-9820-ec55758444cc",
-      "registeredAt": "May 23rd 2022",
-      "taskId": "j jb j jlll",
-      "action": "kknkb",
-      "actualTime": 7987987,
-      "createdAt": "May 27th 2022, 4:39:26 am",
-      "lastUpdated": "May 27th 2022, 4:43:24 am"
-    },
-    {
-      "id": "a45554ff-77c5-4d02-be62-fb9bfb4cfcb7",
-      "registeredAt": "May 26th 2022",
-      "taskId": "ccscsc",
-      "action": "accccc",
-      "actualTime": 123,
-      "createdAt": "May 27th 2022, 4:43:56 am",
-      "lastUpdated": "May 27th 2022, 4:43:56 am"
-    },
-    {
-      "id": "861e379d-4f51-498f-ac41-c8e25fb64af8",
-      "registeredAt": "May 26th 2022",
-      "taskId": "snsxnax",
-      "action": "acacacac",
-      "actualTime": 234,
-      "createdAt": "May 27th 2022, 4:44:09 am",
-      "lastUpdated": "May 27th 2022, 4:54:24 am"
-    },
-    {
-      "id": "da02014b-1741-4eb1-b723-e91a436176b0",
-      "registeredAt": "May 29th 2022",
-      "taskId": "acascsxacaca",
-      "action": "2sdaca",
-      "actualTime": 3,
-      "createdAt": "May 27th 2022, 4:47:15 am",
-      "lastUpdated": "May 27th 2022, 4:47:15 am"
-    },
-    {
-      "id": "bdc44373-128d-424e-ac24-e9100b7cde4a",
-      "registeredAt": "May 29th 2022",
-      "taskId": "ccc",
-      "action": "cacac",
-      "actualTime": 0,
-      "createdAt": "May 27th 2022, 4:47:38 am",
-      "lastUpdated": "May 27th 2022, 4:47:38 am"
-    },
-    {
-      "id": "e313b39d-978f-4599-8cd5-eb2eefb04fab",
-      "registeredAt": "May 29th 2022",
-      "taskId": "n ac ascnjnnjn",
-      "action": "baskcbac",
-      "actualTime": 1212,
-      "createdAt": "May 27th 2022, 4:49:19 am",
-      "lastUpdated": "May 27th 2022, 4:49:59 am"
-    },
-    {
-      "id": "54b5301a-3445-443a-98ff-eb0318687ec0",
-      "registeredAt": "May 31st 2022",
-      "taskId": "njsjsjssa",
-      "action": "njsjsjssa",
-      "actualTime": 122,
-      "createdAt": "May 27th 2022, 4:50:25 am",
-      "lastUpdated": "May 27th 2022, 4:50:25 am"
-    },
-    {
-      "id": "a7baf887-10b6-47ec-ac65-40355269c47a",
-      "registeredAt": "May 31st 2022",
-      "taskId": "x",
-      "action": "njsjsjssa",
-      "actualTime": 123,
-      "createdAt": "May 27th 2022, 4:50:34 am",
-      "lastUpdated": "May 27th 2022, 4:51:09 am"
-    },
-    {
-      "id": "bcb77ff3-d9b3-4978-8a5d-6cff61e17319",
-      "registeredAt": "May 31st 2022",
-      "taskId": "0",
-      "action": "njsjsjssa",
-      "actualTime": 123,
-      "createdAt": "May 27th 2022, 4:50:46 am",
-      "lastUpdated": "May 27th 2022, 4:50:58 am"
-    }
-  ]
+    "tasks": [
+        {
+            "id": "Task-1",
+            "title": "n z, z s ",
+            "description": "nsknsknvn",
+            "estimatedTime": 12200,
+            "priority": "p3",
+            "createdAt": "May 27th 2022, 2:16:53 am",
+            "lastUpdated": "May 27th 2022, 2:16:53 am"
+        },
+        {
+            "id": "Task-2",
+            "title": "alncnlcn",
+            "description": "mnzccc",
+            "estimatedTime": 9.33e+75,
+            "priority": "p4",
+            "createdAt": "May 27th 2022, 2:17:06 am",
+            "lastUpdated": "May 27th 2022, 2:17:06 am"
+        },
+        {
+            "id": "Task-3",
+            "title": "hogacnkccncacmmkm m",
+            "description": "o",
+            "estimatedTime": 231313,
+            "priority": "p3",
+            "createdAt": "May 27th 2022, 2:17:33 am",
+            "lastUpdated": "May 27th 2022, 4:41:16 am"
+        },
+        {
+            "id": "Task-4",
+            "title": "Ax",
+            "description": "xsaxascx",
+            "estimatedTime": 123,
+            "priority": "p2",
+            "createdAt": "June 24th 2022, 12:30:59 pm",
+            "lastUpdated": "June 24th 2022, 12:30:59 pm"
+        }
+    ],
+    "timeRegistries": [
+        {
+            "id": "7e7aea94-e675-4ce2-a863-88aaf44a37ac",
+            "registeredAt": "May 4th 2022",
+            "taskId": "Task-1",
+            "action": "lorem ipsum",
+            "actualTime": 12,
+            "createdAt": "May 27th 2022, 4:34:14 am",
+            "lastUpdated": "May 27th 2022, 4:34:14 am"
+        },
+        {
+            "id": "e876fa1a-5f1a-492a-9d0b-9bd628023163",
+            "registeredAt": "May 4th 2022",
+            "taskId": "Task-2",
+            "action": "ncjnkjnackjn",
+            "actualTime": 89,
+            "createdAt": "May 27th 2022, 4:34:33 am",
+            "lastUpdated": "May 27th 2022, 4:34:33 am"
+        },
+        {
+            "id": "dacef0d4-5227-4c21-b70e-4072fd589769",
+            "registeredAt": "May 4th 2022",
+            "taskId": "Task-7",
+            "action": "lorem ipsumh.",
+            "actualTime": 901,
+            "createdAt": "May 27th 2022, 4:34:51 am",
+            "lastUpdated": "May 27th 2022, 4:42:34 am"
+        },
+        {
+            "id": "ff0d653f-483e-411a-bf87-4a3e47225a81",
+            "registeredAt": "May 21st 2022",
+            "taskId": "Task-89",
+            "action": "asascac",
+            "actualTime": 123,
+            "createdAt": "May 27th 2022, 4:36:59 am",
+            "lastUpdated": "May 27th 2022, 4:36:59 am"
+        },
+        {
+            "id": "d42ff803-49d2-447b-888d-0d678c52e1a8",
+            "registeredAt": "May 21st 2022",
+            "taskId": "lmamacb kl",
+            "action": "asanc",
+            "actualTime": 92929292,
+            "createdAt": "May 27th 2022, 4:37:12 am",
+            "lastUpdated": "May 27th 2022, 4:38:46 am"
+        },
+        {
+            "id": "1d802fde-f30b-4e1f-ba60-867f72baa9f1",
+            "registeredAt": "May 23rd 2022",
+            "taskId": "nm mn .",
+            "action": "jnljnjln",
+            "actualTime": 0,
+            "createdAt": "May 27th 2022, 4:39:12 am",
+            "lastUpdated": "May 27th 2022, 4:43:37 am"
+        },
+        {
+            "id": "29c3114e-2ddd-4c05-9820-ec55758444cc",
+            "registeredAt": "May 23rd 2022",
+            "taskId": "j jb j jlll",
+            "action": "kknkb",
+            "actualTime": 7987987,
+            "createdAt": "May 27th 2022, 4:39:26 am",
+            "lastUpdated": "May 27th 2022, 4:43:24 am"
+        },
+        {
+            "id": "a45554ff-77c5-4d02-be62-fb9bfb4cfcb7",
+            "registeredAt": "May 26th 2022",
+            "taskId": "ccscsc",
+            "action": "accccc",
+            "actualTime": 123,
+            "createdAt": "May 27th 2022, 4:43:56 am",
+            "lastUpdated": "May 27th 2022, 4:43:56 am"
+        },
+        {
+            "id": "861e379d-4f51-498f-ac41-c8e25fb64af8",
+            "registeredAt": "May 26th 2022",
+            "taskId": "snsxnax",
+            "action": "acacacac",
+            "actualTime": 234,
+            "createdAt": "May 27th 2022, 4:44:09 am",
+            "lastUpdated": "May 27th 2022, 4:54:24 am"
+        },
+        {
+            "id": "da02014b-1741-4eb1-b723-e91a436176b0",
+            "registeredAt": "May 29th 2022",
+            "taskId": "acascsxacaca",
+            "action": "2sdaca",
+            "actualTime": 3,
+            "createdAt": "May 27th 2022, 4:47:15 am",
+            "lastUpdated": "May 27th 2022, 4:47:15 am"
+        },
+        {
+            "id": "bdc44373-128d-424e-ac24-e9100b7cde4a",
+            "registeredAt": "May 29th 2022",
+            "taskId": "ccc",
+            "action": "cacac",
+            "actualTime": 0,
+            "createdAt": "May 27th 2022, 4:47:38 am",
+            "lastUpdated": "May 27th 2022, 4:47:38 am"
+        },
+        {
+            "id": "e313b39d-978f-4599-8cd5-eb2eefb04fab",
+            "registeredAt": "May 29th 2022",
+            "taskId": "n ac ascnjnnjn",
+            "action": "baskcbac",
+            "actualTime": 1212,
+            "createdAt": "May 27th 2022, 4:49:19 am",
+            "lastUpdated": "May 27th 2022, 4:49:59 am"
+        },
+        {
+            "id": "54b5301a-3445-443a-98ff-eb0318687ec0",
+            "registeredAt": "May 31st 2022",
+            "taskId": "njsjsjssa",
+            "action": "njsjsjssa",
+            "actualTime": 122,
+            "createdAt": "May 27th 2022, 4:50:25 am",
+            "lastUpdated": "May 27th 2022, 4:50:25 am"
+        },
+        {
+            "id": "a7baf887-10b6-47ec-ac65-40355269c47a",
+            "registeredAt": "May 31st 2022",
+            "taskId": "x",
+            "action": "njsjsjssa",
+            "actualTime": 123,
+            "createdAt": "May 27th 2022, 4:50:34 am",
+            "lastUpdated": "May 27th 2022, 4:51:09 am"
+        },
+        {
+            "id": "bcb77ff3-d9b3-4978-8a5d-6cff61e17319",
+            "registeredAt": "May 31st 2022",
+            "taskId": "0",
+            "action": "njsjsjssa",
+            "actualTime": 123,
+            "createdAt": "May 27th 2022, 4:50:46 am",
+            "lastUpdated": "May 27th 2022, 4:50:58 am"
+        }
+    ]
 }

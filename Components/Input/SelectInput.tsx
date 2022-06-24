@@ -21,7 +21,7 @@ function SelectInput({
       >
         <>
           <option value="" disabled selected hidden>
-            Select a priority
+            Select from available options
           </option>
           {options.map((item, index) => (
             <option key={index} value={item}>

@@ -9,7 +9,7 @@ import {
   ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { TextInput, ErrorIndicator } from '@/Input/index';
+import { TextInput, ErrorIndicator, SelectInput } from '@/Input/index';
 import { v4 } from 'uuid';
 import { Moment } from 'moment';
 
@@ -18,7 +18,10 @@ import {
   TextInputContainer,
   ButtonContainer,
   CancelButton,
+  SelectInputContainer,
 } from '@/Form/Form.styled';
+
+import moment from 'moment';
 
 // interface MyFormValues {
 //   [index: string]: string | number;
@@ -43,6 +46,7 @@ type RegistryFormProps<X, Z> = {
   modal: <F extends (a: boolean) => boolean>(param: F) => void;
   initialState: Z;
   timeRegestry?: boolean;
+  taskIdList: string[];
 };
 
 function RegistryForm<
@@ -56,6 +60,7 @@ function RegistryForm<
   modal,
   timeRegestry = true,
   initialState,
+  taskIdList,
 }: RegistryFormProps<X, Z>) {
   return (
     <Formik
@@ -67,6 +72,9 @@ function RegistryForm<
           taskId: values.taskId,
           action: values.action,
           actualTime: values.actualTime,
+          id: v4(),
+          createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
+          lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
         });
       }}
       validationSchema={validationSchema}
@@ -91,7 +99,7 @@ function RegistryForm<
               Cancel
             </CancelButton>
 
-            <Field
+            {/* <Field
               name="taskId"
               render={({ field, form, meta }: FieldProps) => {
                 return (
@@ -104,6 +112,27 @@ function RegistryForm<
                       type="text"
                     />
                   </TextInputContainer>
+                );
+              }}
+            />
+
+            <ErrorMessage name="taskId">
+              {(message) => {
+                return <ErrorIndicator message={message} />;
+              }}
+            </ErrorMessage> */}
+
+            <Field
+              name="taskId"
+              render={({ field, form, meta }: FieldProps) => {
+                return (
+                  <SelectInputContainer>
+                    <SelectInput
+                      {...field}
+                      label="TaskId"
+                      options={taskIdList}
+                    />
+                  </SelectInputContainer>
                 );
               }}
             />

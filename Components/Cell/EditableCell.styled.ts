@@ -7,11 +7,22 @@ export const SubRow = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  & p {
+  justify-content: center;
+  & div {
+    flex-grow: 1;
   }
-  & span {
+  & button {
     margin-left: auto;
     cursor: pointer;
+  }
+
+  & form {
+    display: flex;
+    justify-content: center;
+    & input,
+    select {
+      flex-grow: 1;
+    }
   }
 `;
 
@@ -26,7 +37,7 @@ export const IconContainer = styled.div<IconContainerProps>`
   padding: 0.5em;
   display: flex;
   gap: 10px;
-
+  justify-content: end;
   & button {
     all: unset;
     cursor: pointer;

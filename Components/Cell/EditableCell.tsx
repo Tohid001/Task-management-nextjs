@@ -13,6 +13,7 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 import { ErrorIndicator } from '@/Input/index';
+import moment from 'moment';
 
 // interface MyFormValues {
 //   [index: string]: string | number;
@@ -50,83 +51,88 @@ function EditableCell<
 
   return (
     <SubRow>
-      {!isEdit ? (
-        <p>{value}</p>
-      ) : (
-        <Formik
-          initialValues={initialState}
-          onSubmit={(values, actions) => {
-            console.log({ values, actions });
-            taskInfoFieldUpdateHandler(id, values);
-            setEdit((prev) => {
-              return !prev;
-            });
-          }}
-          validationSchema={validationSchema}
-          render={({ values, handleSubmit, handleReset }) => {
-            console.log('values', values);
-            return (
-              <form onSubmit={handleSubmit}>
-                <Field
-                  name={Object.keys(values)[0]}
-                  render={(props: FieldProps) => {
-                    return children(props);
-                  }}
-                />
+      <div>
+        {!isEdit ? (
+          value
+        ) : (
+          <Formik
+            initialValues={initialState}
+            onSubmit={(values, actions) => {
+              console.log({ values, actions });
+              taskInfoFieldUpdateHandler(id, {
+                ...values,
+                lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
+              });
+              setEdit((prev) => {
+                return !prev;
+              });
+            }}
+            validationSchema={validationSchema}
+            render={({ values, handleSubmit, handleReset }) => {
+              console.log('values', values);
+              return (
+                <form onSubmit={handleSubmit}>
+                  <Field
+                    name={Object.keys(values)[0]}
+                    render={(props: FieldProps) => {
+                      return children(props);
+                    }}
+                  />
 
-                <ErrorMessage name="taskId">
-                  {(message) => {
-                    return <ErrorIndicator message={message} />;
-                  }}
-                </ErrorMessage>
+                  <ErrorMessage name="taskId">
+                    {(message) => {
+                      return <ErrorIndicator message={message} />;
+                    }}
+                  </ErrorMessage>
 
-                <IconContainer
-                  isEdit={isEdit}
-                  isAbled={
-                    !(
-                      Object.values(initialState)[0]
-                        .toString()
-                        .toLowerCase() ===
-                      Object.values(values)[0].toString().toLowerCase()
-                    )
-                  }
-                >
-                  <>
-                    <button
-                      type="reset"
-                      onClick={() => {
-                        setEdit((prev) => {
-                          return !prev;
-                        });
-                        handleReset;
-                      }}
-                    >
-                      <GiCancel size="1rem" />
-                    </button>
-
-                    <button
-                      type="submit"
-                      disabled={
+                  <IconContainer
+                    isEdit={isEdit}
+                    isAbled={
+                      !(
                         Object.values(initialState)[0]
                           .toString()
                           .toLowerCase() ===
                         Object.values(values)[0].toString().toLowerCase()
-                      }
-                      // onClick={() => {
-                      //   setEdit((prev) => {
-                      //     return !prev;
-                      //   });
-                      // }}
-                    >
-                      <FaSave size="1rem" />
-                    </button>
-                  </>
-                </IconContainer>
-              </form>
-            );
-          }}
-        />
-      )}
+                      )
+                    }
+                  >
+                    <>
+                      <button
+                        type="reset"
+                        onClick={() => {
+                          setEdit((prev) => {
+                            return !prev;
+                          });
+                          handleReset;
+                        }}
+                      >
+                        <GiCancel size="1rem" />
+                      </button>
+
+                      <button
+                        type="submit"
+                        disabled={
+                          Object.values(initialState)[0]
+                            .toString()
+                            .toLowerCase() ===
+                          Object.values(values)[0].toString().toLowerCase()
+                        }
+                        // onClick={() => {
+                        //   setEdit((prev) => {
+                        //     return !prev;
+                        //   });
+                        // }}
+                      >
+                        <FaSave size="1rem" />
+                      </button>
+                    </>
+                  </IconContainer>
+                </form>
+              );
+            }}
+          />
+        )}
+      </div>
 
       {!isEdit && (
         <button

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RegistryForm from '@/Form/RegistryForm';
 import EditableCell from '@/Cell/EditableCell';
-import { TextInput, DateInput } from '@/Input/index';
+import { TextInput, DateInput, SelectInput } from '@/Input/index';
 import { AiFillDelete, AiOutlinePlus } from 'react-icons/ai';
 import axios from 'axios';
 import moment from 'moment';
@@ -27,20 +27,30 @@ function Row({
 }) {
   const [modal, setModal] = useState<boolean>(false);
   const [rTask, setRtask] = useState<rTask[]>([] as rTask[]);
+  const [taskIdList, setTaskIdList] = useState<string[]>([] as string[]);
 
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `api/timeRegistry/date/${date.clone().format('MMMM Do YYYY')}`
+        `http://localhost:5000/timeRegistries?registeredAt=${date
+          .clone()
+          .format('MMMM Do YYYY')}`
       );
 
+      const response2 = await axios.get(`http://localhost:5000/tasks`);
+
+      const taskIdlist = response2.data.map(({ id }, i) => {
+        return id;
+      });
+
       setRtask(response.data);
+      setTaskIdList(taskIdlist);
     };
     fetch();
   }, [date]);
 
   const taskInfoFieldUpdateHandler = async (id: string | number, body: {}) => {
-    await axios.patch(`api/timeRegistry/${id}`, body);
+    await axios.patch(`http://localhost:5000/timeRegistries/${id}`, body);
     const index = rTask.findIndex((task) => {
       return task.id === id;
     });
@@ -50,10 +60,13 @@ function Row({
   };
 
   const addTasktoSpecificRehgistryDate = async (body: rTask) => {
-    const response = await axios.post(`api/timeRegistry`, body);
+    const response = await axios.post(
+      `http://localhost:5000/timeRegistries`,
+      body
+    );
     console.log('submit called', response);
 
-    setRtask([...rTask, response.data.newRegistry]);
+    setRtask([...rTask, response.data]);
     setModal((prev) => !prev);
   };
 
@@ -80,6 +93,7 @@ function Row({
               }}
               modal={setModal}
               nest={true}
+              taskIdList={taskIdList}
             />
           )}
         </th>
@@ -96,12 +110,13 @@ function Row({
               >
                 {(options) => {
                   return (
-                    <TextInput
-                      {...options.field}
-                      placeholder="Enter a taskId"
-                      autoFocus={false}
-                      type="text"
-                    />
+                    // <TextInput
+                    //   {...options.field}
+                    //   placeholder="Enter a taskId"
+                    //   autoFocus={false}
+                    //   type="text"
+                    // />
+                    <SelectInput {...options.field} options={taskIdList} />
                   );
                 }}
               </EditableCell>
