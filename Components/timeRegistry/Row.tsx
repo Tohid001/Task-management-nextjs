@@ -39,7 +39,7 @@ function Row({
 
       const response2 = await axios.get(`https://etmfjs.herokuapp.com/tasks`);
 
-      const taskIdlist = response2.data.map(({ id }, i) => {
+      const taskIdlist = response2.data.map(({ id }: { id: string }) => {
         return id;
       });
 
