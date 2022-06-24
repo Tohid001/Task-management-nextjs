@@ -52,7 +52,9 @@ function Form() {
   const submitHandler = async (formstates: MyFormValues) => {
     const newTask = await axios.post(`https://etmfjs.herokuapp.com/tasks`, {
       ...formstates,
-      id: `Task-${newTaskId}`,
+      id: `Task-${Math.random()
+        .toString(36)
+        .substring(2, len + 2)}`,
       createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
       lastUpdated: moment().format('MMMM Do YYYY, h:mm:ss a'),
     });
